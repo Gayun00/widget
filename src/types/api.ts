@@ -10,7 +10,7 @@ interface GetUsersResponseHeader {
 export interface GetUsersResponse {
   data: {
     headers: GetUsersResponseHeader[];
-    rows: (string | number)[][];
+    rows: string[][];
   };
   result: boolean;
   message: string;
