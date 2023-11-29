@@ -55,7 +55,6 @@ const BasicLayout = ({
   }
 
   const handleLayoutChange = (newLayout: Layout[]) => {
-    console.log(newLayout);
     setLayout(newLayout);
     onLayoutChange(newLayout);
   };
