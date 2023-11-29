@@ -23,3 +23,7 @@ export const getTotalEventSumByDate = (
     .filter((row) => row[0] === targetDate)
     .reduce((sum, row) => sum + parseInt(row[2], 10), 0);
 };
+
+export const formatNumberWithCommas = (number: number) => {
+  return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};

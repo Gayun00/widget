@@ -7186,6 +7186,7 @@ __metadata:
     react: ^18.2.0
     react-dom: ^18.2.0
     react-grid-layout: ^1.4.4
+    react-icons: ^4.12.0
     storybook: ^7.6.1
     tailwind-merge: ^2.0.0
     tailwindcss: ^3.3.5
@@ -9438,6 +9439,15 @@ __metadata:
     react: ">= 16.3.0"
     react-dom: ">= 16.3.0"
   checksum: 0d1d27d6ca58d5b7e9bf778f5d74e5a6353737980f86652b6a799a83b8683735d333f2a0d9b48e3186879da3eefd7f53a7db05a5149dfba27d9d124e5cd3f138
+  languageName: node
+  linkType: hard
+
+"react-icons@npm:^4.12.0":
+  version: 4.12.0
+  resolution: "react-icons@npm:4.12.0"
+  peerDependencies:
+    react: "*"
+  checksum: db82a141117edcd884ade4229f0294b2ce15d82f68e0533294db07765d6dce00b129cf504338ec7081ce364fe899b296cb7752554ea08665b1d6bad811134e79
   languageName: node
   linkType: hard
 
