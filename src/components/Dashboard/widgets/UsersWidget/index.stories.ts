@@ -15,7 +15,11 @@ type Story = StoryObj<typeof UsersWidget>;
 
 export const UniqueEventWidget: Story = {
   args: {
-    //TODO: args 추가
+    title: "접속유저",
+    type: "SUM",
+    property: "Unique Event Count",
+    data: 18204,
+    changeRate: -93,
   },
 };
 
