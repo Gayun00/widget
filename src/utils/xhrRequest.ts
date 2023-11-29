@@ -36,8 +36,6 @@ const xhrRequest = <TParams, TResponse>({
       true
     );
 
-    xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
-
     if (shouldAuthorize) {
       const token = localStorage.getItem(STORAGE_KEY.TOKEN);
       if (token) {

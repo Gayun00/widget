@@ -1,6 +1,5 @@
 export const URL = {
-  BASE: "http://localhost:5173/",
-  API: "http://api-server/",
+  API: "https://static.adbrix.io/front/coding-test",
 };
 
 export const STORAGE_KEY = {
