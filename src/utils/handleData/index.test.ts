@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
-import { user_events } from "./mockdata";
 import { getTotalEventSumByDate, sumDataByDate } from ".";
+import { user_events } from "./mockData";
 
 describe("특정 날짜의 unique event count 총합 구하기", () => {
   it("데이터 중 해당 날짜의 특정 인덱스 값 총합 리턴", () => {
