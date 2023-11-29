@@ -17,7 +17,13 @@ interface Props {
   changeRate: number;
 }
 
-function UsersWidget({ title, type, property, data, changeRate }: Props) {
+function StatsOverViewWidget({
+  title,
+  type,
+  property,
+  data,
+  changeRate,
+}: Props) {
   return (
     <Card>
       <CardHeader>
@@ -48,4 +54,4 @@ function UsersWidget({ title, type, property, data, changeRate }: Props) {
   );
 }
 
-export default UsersWidget;
+export default StatsOverViewWidget;

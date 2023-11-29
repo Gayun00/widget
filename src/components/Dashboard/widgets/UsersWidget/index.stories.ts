@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import UsersWidget from ".";
+import StatsOverViewWidget from ".";
 
-const meta: Meta<typeof UsersWidget> = {
-  title: "widgets/UsersWidget",
-  component: UsersWidget,
+const meta: Meta<typeof StatsOverViewWidget> = {
+  title: "widgets/StatsOverViewWidget",
+  component: StatsOverViewWidget,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
@@ -11,7 +11,7 @@ const meta: Meta<typeof UsersWidget> = {
 };
 
 export default meta;
-type Story = StoryObj<typeof UsersWidget>;
+type Story = StoryObj<typeof StatsOverViewWidget>;
 
 export const ChangeRateIncreased: Story = {
   args: {
@@ -32,5 +32,3 @@ export const ChangeRateDecreased: Story = {
     changeRate: -93,
   },
 };
-
-export const TotalEventWidget: Story = {};
