@@ -2,6 +2,7 @@ import { useState } from "react";
 import _ from "lodash";
 import RGL, { WidthProvider } from "react-grid-layout";
 import "./index.css";
+import { useUsersQuery } from "@/queries";
 
 const ReactGridLayout = WidthProvider(RGL);
 
