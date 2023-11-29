@@ -1,5 +1,4 @@
 export const URL = {
-  BASE: "http://localhost:5173/",
   API: "https://static.adbrix.io/front/coding-test",
 };
 
