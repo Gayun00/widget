@@ -6,6 +6,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { formatNumberWithCommas } from "@/utils/handleData";
 
 interface Props {
   title: string;
@@ -29,7 +30,7 @@ function UsersWidget({ title, type, property, data, changeRate }: Props) {
           <p className="text-sm">{property}</p>
         </div>
         <CardDescription className="text-4xl font-extrabold text-black">
-          {data}
+          {formatNumberWithCommas(data)}
         </CardDescription>
         <p className="text-primary">{changeRate}</p>
       </CardContent>
