@@ -15,6 +15,37 @@ export const sumDataOfKey = (
     .reduce((sum, row) => sum + parseInt(row[dataIndex], 10), 0);
 };
 
+export const generateSumArrayOfKey = (
+  data: string[][],
+  dataIndex: number,
+  range?: number
+) => {
+  const sum: Record<string, number> = {};
+
+  data.forEach((date) => {
+    if (!sum[date[0]]) {
+      sum[date[0]] = parseInt(date[dataIndex], 10);
+    } else {
+      sum[date[0]] += parseInt(date[dataIndex], 10);
+    }
+  });
+
+  const sortedSum = Object.entries(sum).sort((a, b) => b[1] - a[1]);
+  if (!range) return sortedSum;
+  if (sortedSum.length > range) {
+    const others = sortedSum
+      .slice(range)
+      .reduce((acc, [, value]) => acc + value, 0);
+    return sortedSum.slice(0, 3).concat([["etc", others]]);
+  }
+};
+
+export const seperateKeyValuesFromArray = (data: [string, number][]) => {
+  const keys = data.map((item) => item[0]);
+  const values = data.map((item) => item[1]);
+  return { keys, values };
+};
+
 export const getUniqueEventSumByDate = (
   rows: string[][],
   targetDate: string

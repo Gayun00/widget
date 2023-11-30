@@ -14,11 +14,9 @@ export const userEvents = [
 
 export const topReferral = [
   ["www.blog.adbrix.io", "15"],
-  ["search.naver.com", "55"],
-  ["lgu-cto.atlassian.net", "1"],
-  ["mail.hanwhawm.com", "1"],
+  ["naver.com", "55"],
   ["naver.com", "16"],
-  ["mail.daolsb.com", "2"],
+  ["www.google.com.hk", "2"],
   ["www.google.com.hk", "2"],
   ["adpick.co.kr", "1"],
   ["madup.atlassian.net", "1"],

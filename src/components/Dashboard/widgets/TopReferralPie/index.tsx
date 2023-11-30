@@ -1,13 +1,17 @@
+import { useTopReferralQuery } from "@/queries";
 import View from "./View";
+import {
+  generateSumArrayOfKey,
+  seperateKeyValuesFromArray,
+} from "@/utils/handleData";
 
 function TopReferralPie() {
-  // TODO: api 응답값으로 교체
-  return (
-    <View
-      data={[44, 55, 13, 43, 22]}
-      labels={["Team A", "Team B", "Team C", "Team D", "Team E"]}
-    />
-  );
+  const { data: topReferral } = useTopReferralQuery();
+  if (!topReferral?.data.rows) return;
+  const data = generateSumArrayOfKey(topReferral?.data.rows, 1, 4);
+  if (!data) return;
+  const { keys, values } = seperateKeyValuesFromArray(data);
+  return <View data={values} labels={keys} />;
 }
 
 export default TopReferralPie;
