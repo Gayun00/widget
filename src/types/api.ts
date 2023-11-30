@@ -1,4 +1,4 @@
-interface GetUsersResponseHeader {
+interface ResponseHeader {
   idx: number;
   key: string;
   label: string;
@@ -7,9 +7,9 @@ interface GetUsersResponseHeader {
   value_type: string;
 }
 
-export interface GetUsersResponse {
+export interface Response {
   data: {
-    headers: GetUsersResponseHeader[];
+    headers: ResponseHeader[];
     rows: string[][];
   };
   result: boolean;
