@@ -16,6 +16,7 @@ interface Props {
 
 const View = ({ dates, column, line }: Props) => {
   const maxValue = Math.max(Math.max(...column.data), Math.max(...line.data));
+  console.log(column.data, line.data, dates);
   const [series] = useState([
     {
       name: column.name,

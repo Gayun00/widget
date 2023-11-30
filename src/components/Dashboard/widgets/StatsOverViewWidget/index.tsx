@@ -25,7 +25,7 @@ function StatsOverViewWidget({
   changeRate,
 }: Props) {
   return (
-    <Card>
+    <Card className="w-full h-full">
       <CardHeader>
         <CardTitle className="text-sm text-primary font-bold">
           {title}

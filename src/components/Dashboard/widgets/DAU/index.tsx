@@ -24,7 +24,6 @@ function DAU({ startDate, endDate }: Props) {
   );
 
   const dates = generateDateArray(startDate, endDate);
-
   return (
     <View
       dates={dates}
