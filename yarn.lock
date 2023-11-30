@@ -3654,6 +3654,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/react-table@npm:^8.10.7":
+  version: 8.10.7
+  resolution: "@tanstack/react-table@npm:8.10.7"
+  dependencies:
+    "@tanstack/table-core": 8.10.7
+  peerDependencies:
+    react: ">=16"
+    react-dom: ">=16"
+  checksum: f8f19ae3ad8531e0f3cb838b61213d9acd0b64b27d1a8a05a699e6ed50e25c9d3c9478ae3f6d20883288f601eec06e8264fac9503b36122471c2f8778782e1e2
+  languageName: node
+  linkType: hard
+
+"@tanstack/table-core@npm:8.10.7":
+  version: 8.10.7
+  resolution: "@tanstack/table-core@npm:8.10.7"
+  checksum: 2a364917e7ab051ef3f33d6f18e5e1ddb75cfed4b5ee0e2b9c74a8cb72d3b86cdd4ffbab67565c68b4333f761b6fde9a7215196387a9a3b3d5811119d8859bad
+  languageName: node
+  linkType: hard
+
 "@testing-library/dom@npm:^9.3.1":
   version: 9.3.3
   resolution: "@testing-library/dom@npm:9.3.3"
@@ -7185,6 +7204,7 @@ __metadata:
     "@storybook/react-vite": ^7.6.1
     "@storybook/test": ^7.6.1
     "@tanstack/react-query": ^5.9.0
+    "@tanstack/react-table": ^8.10.7
     "@types/lodash": ^4.14.202
     "@types/node": ^20.10.0
     "@types/react": ^18.2.37
