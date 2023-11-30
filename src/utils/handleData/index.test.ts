@@ -4,14 +4,14 @@ import {
   generateDateArray,
   generateSumInDateRange,
   getTotalEventSumByDate,
-  sumDataByDate,
+  sumDataOfKey,
 } from ".";
 import { userEvents } from "./mockData";
 
 describe("특정 날짜의 data 총합 구하기", () => {
   it("데이터 중 해당 날짜의 특정 인덱스 값 총합 리턴", () => {
-    expect(sumDataByDate(userEvents.data.rows, "2022-03-23", 1)).toBe(3);
-    expect(sumDataByDate(userEvents.data.rows, "2022-03-23", 2)).toBe(460);
+    expect(sumDataOfKey(userEvents, "2022-03-23", 1)).toBe(3);
+    expect(sumDataOfKey(userEvents, "2022-03-23", 2)).toBe(460);
   });
 
   it("getUniqueEventSumByDate: 데이터 중 해당 날짜의 unique event count 총합 리턴", () => {
@@ -19,38 +19,28 @@ describe("특정 날짜의 data 총합 구하기", () => {
       rows: string[][],
       targetDate: string
     ): number {
-      return sumDataByDate(rows, targetDate, 1);
+      return sumDataOfKey(rows, targetDate, 1);
     }
-    expect(getUniqueEventSumByDate(userEvents.data.rows, "2022-03-23")).toBe(3);
+    expect(getUniqueEventSumByDate(userEvents, "2022-03-23")).toBe(3);
   });
 
   it("데이터 중 해당 날짜의 total event count 총합 리턴", () => {
-    expect(getTotalEventSumByDate(userEvents.data.rows, "2022-03-23")).toBe(
-      460
-    );
+    expect(getTotalEventSumByDate(userEvents, "2022-03-23")).toBe(460);
   });
+
+  it("topReferral 사이트 별 총합 배열");
 });
 
 describe("generateSumInDateRange", () => {
   it("입력한 날짜 구간의 접속 유저 총합 배열 생성", () => {
     expect(
-      generateSumInDateRange(
-        userEvents.data.rows,
-        "2022-03-08",
-        "2022-03-11",
-        1
-      )
+      generateSumInDateRange(userEvents, "2022-03-08", "2022-03-11", 1)
     ).toEqual([8, 0, 0, 11]);
   });
 
   it("입력한 날짜 구간의 접속 횟수 총합 배열 생성", () => {
     expect(
-      generateSumInDateRange(
-        userEvents.data.rows,
-        "2022-03-08",
-        "2022-03-11",
-        2
-      )
+      generateSumInDateRange(userEvents, "2022-03-08", "2022-03-11", 2)
     ).toEqual([80, 0, 0, 110]);
   });
 });

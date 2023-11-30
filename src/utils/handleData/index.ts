@@ -5,7 +5,7 @@ import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
 
-export const sumDataByDate = (
+export const sumDataOfKey = (
   rows: string[][],
   targetDate: string,
   dataIndex: number
@@ -19,7 +19,7 @@ export const getUniqueEventSumByDate = (
   rows: string[][],
   targetDate: string
 ): number => {
-  return sumDataByDate(rows, targetDate, 1);
+  return sumDataOfKey(rows, targetDate, 1);
 };
 
 export const getTotalEventSumByDate = (
