@@ -11,6 +11,7 @@ import {
   sumDataOfKey,
 } from ".";
 import { topReferral, topReferralTable, userEvents } from "./mockData";
+import { removeKeyFromObjectsInArray } from "../testUtil";
 
 describe("sumDataOfKey 테스트", () => {
   it("데이터 중 해당 key의 특정 인덱스 값 총합 리턴", () => {
@@ -96,17 +97,16 @@ describe("seperateKeyValuesFromArray 테스트", () => {
 
 describe("convertArrayToObject", () => {
   it("입력한 Key값으로 배열을 객체로 변환", () => {
-    expect(
-      convertArrayToObject(
-        [
-          { name: "country", type: "string" },
-          { name: "region", type: "string" },
-          { name: "city", type: "string" },
-          { name: "uniqueEventCount", type: "number" },
-        ],
-        topReferralTable
-      )
-    ).toEqual([
+    const result = convertArrayToObject(
+      [
+        { name: "country", type: "string" },
+        { name: "region", type: "string" },
+        { name: "city", type: "string" },
+        { name: "uniqueEventCount", type: "number" },
+      ],
+      topReferralTable
+    );
+    expect(removeKeyFromObjectsInArray(result, "id")).toEqual([
       {
         city: "guro-gu",
         country: "kr",
@@ -128,17 +128,16 @@ describe("convertArrayToObject", () => {
     ]);
   });
   it("문자열 값 중 빈 값이 있다면 (empty)로 입력", () => {
-    expect(
-      convertArrayToObject(
-        [
-          { name: "country", type: "string" },
-          { name: "region", type: "string" },
-          { name: "city", type: "string" },
-          { name: "uniqueEventCount", type: "number" },
-        ],
-        [["kr", "", "pocheon-si", "0"]]
-      )
-    ).toEqual([
+    const result = convertArrayToObject(
+      [
+        { name: "country", type: "string" },
+        { name: "region", type: "string" },
+        { name: "city", type: "string" },
+        { name: "uniqueEventCount", type: "number" },
+      ],
+      [["kr", "", "pocheon-si", "0"]]
+    );
+    expect(removeKeyFromObjectsInArray(result, "id")).toEqual([
       {
         city: "pocheon-si",
         country: "kr",

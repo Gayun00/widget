@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import { v4 as uuid } from "uuid";
 
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
@@ -114,6 +115,7 @@ export const convertArrayToObject = (
   return data.map((item) => {
     const obj: Record<string, string | number> = {};
     keys.forEach((key, index) => {
+      obj["id"] = uuid();
       if (key.type === "string") {
         obj[key.name] = item[index].length ? item[index] : "(empty)";
       } else {
