@@ -2950,7 +2950,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-slot@npm:1.0.2":
+"@radix-ui/react-slot@npm:1.0.2, @radix-ui/react-slot@npm:^1.0.2":
   version: 1.0.2
   resolution: "@radix-ui/react-slot@npm:1.0.2"
   dependencies:
@@ -2992,7 +2992,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@radix-ui/react-toggle@npm:1.0.3":
+"@radix-ui/react-toggle@npm:1.0.3, @radix-ui/react-toggle@npm:^1.0.3":
   version: 1.0.3
   resolution: "@radix-ui/react-toggle@npm:1.0.3"
   dependencies:
@@ -7913,6 +7913,8 @@ __metadata:
     "@mui/x-data-grid": ^6.18.2
     "@mui/x-data-grid-generator": ^6.18.2
     "@mui/x-data-grid-premium": ^6.18.2
+    "@radix-ui/react-slot": ^1.0.2
+    "@radix-ui/react-toggle": ^1.0.3
     "@storybook/addon-essentials": ^7.6.1
     "@storybook/addon-interactions": ^7.6.1
     "@storybook/addon-links": ^7.6.1
