@@ -39,6 +39,10 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
 
   const handleLayoutChange = (newLayout: Layout[]) => {
     setLayout(newLayout);
+    localStorage.setItem(
+      STORAGE_KEY.DASHBOARD_LAYOUT_1,
+      JSON.stringify(layout)
+    );
   };
 
   useEffect(() => {
@@ -51,7 +55,7 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
   return (
     <ReactGridLayout
       className={className || "layout"}
-      layout={initialLayout}
+      layout={layout}
       onLayoutChange={handleLayoutChange}
       rowHeight={rowHeight}
       cols={cols}>
