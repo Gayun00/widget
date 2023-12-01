@@ -17,7 +17,7 @@ function UniqueEventCountSum() {
 
   return (
     <>
-      {userEvents && (
+      {data && (
         <StatsOverViewWidget
           title="접속유저"
           type="SUM"

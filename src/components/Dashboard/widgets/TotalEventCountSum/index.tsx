@@ -14,7 +14,7 @@ function TotalEventCountSum() {
   }, [userEvents, date]);
   return (
     <>
-      {userEvents && (
+      {data && (
         <StatsOverViewWidget
           title="접속유저"
           type="SUM"
