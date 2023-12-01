@@ -4,15 +4,12 @@ import {
   useGridApiRef,
   useKeepGroupedColumnsHidden,
 } from "@mui/x-data-grid-premium";
-import { useDemoData } from "@mui/x-data-grid-generator";
+import { mockData } from "./mockData";
 
 export default function View() {
-  const { data, loading } = useDemoData({
-    dataSet: "Commodity",
-    rowLength: 100,
-    editable: true,
-    visibleFields: ["commodity", "status", "quantity", "incoTerm"],
-  });
+  const data = mockData;
+  const loading = false;
+
   const apiRef = useGridApiRef();
 
   const initialState = useKeepGroupedColumnsHidden({
@@ -21,23 +18,57 @@ export default function View() {
       ...data.initialState,
       rowGrouping: {
         ...data.initialState?.rowGrouping,
-        model: ["commodity", "status", "incoTerm"],
+        model: ["country", "region", "city"],
       },
       sorting: {
         sortModel: [{ field: "__row_group_by_columns_group__", sort: "asc" }],
       },
       aggregation: {
         model: {
-          quantity: "sum",
+          uniqueEventCount: "sum",
         },
       },
     },
   });
-  console.log(data);
 
+  const COLUMNS = [
+    {
+      id: "123",
+      field: "country",
+      headerName: "Country",
+      hide: false,
+      width: 110,
+      aggregable: true,
+    },
+    {
+      id: "234",
+      field: "region",
+      headerName: "Region",
+      hide: false,
+      width: 110,
+      aggregable: true,
+    },
+    {
+      id: "345",
+      field: "city",
+      headerName: "City",
+      hide: false,
+      width: 110,
+      aggregable: true,
+    },
+    {
+      id: "456",
+      field: "uniqueEventCount",
+      headerName: "Unique event count",
+      hide: false,
+      width: 110,
+      type: "number",
+    },
+  ];
   return (
     <DataGridPremium
       {...data}
+      columns={COLUMNS}
       apiRef={apiRef}
       loading={loading}
       disableRowSelectionOnClick
