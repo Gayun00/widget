@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { ApexOptions } from "apexcharts";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -11,7 +12,7 @@ function View({ data, labels }: Props) {
   const [series] = useState(data);
   const [options] = useState<ApexOptions>({
     chart: {
-      width: 380,
+      width: 500,
       type: "pie",
     },
     labels,
@@ -31,14 +32,14 @@ function View({ data, labels }: Props) {
   });
 
   return (
-    <div id="chart">
+    <Card className="flex justify-center items-center w-full h-full">
       <ReactApexChart
         options={options}
         series={series}
         type="pie"
-        width={380}
+        width={400}
       />
-    </div>
+    </Card>
   );
 }
 

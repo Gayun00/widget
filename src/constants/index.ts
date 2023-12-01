@@ -4,6 +4,7 @@ export const URL = {
 
 export const STORAGE_KEY = {
   TOKEN: "token",
+  DASHBOARD_LAYOUT_1: "dashboard_layout_1",
 };
 
 export const STATUS_CODE = {
