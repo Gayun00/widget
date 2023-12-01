@@ -1,5 +1,6 @@
 import { describe, it, expect } from "vitest";
 import {
+  convertArrayToObject,
   formatNumberWithCommas,
   generateDateArray,
   generateSumArrayOfKey,
@@ -9,7 +10,7 @@ import {
   seperateKeyValuesFromArray,
   sumDataOfKey,
 } from ".";
-import { topReferral, userEvents } from "./mockData";
+import { topReferral, topReferralTable, userEvents } from "./mockData";
 
 describe("sumDataOfKey 테스트", () => {
   it("데이터 중 해당 key의 특정 인덱스 값 총합 리턴", () => {
@@ -90,5 +91,60 @@ describe("seperateKeyValuesFromArray 테스트", () => {
       keys: ["naver.com", "www.blog.adbrix.io", "www.google.com.hk", "etc"],
       values: [71, 15, 4, 2],
     });
+  });
+});
+
+describe("convertArrayToObject", () => {
+  it("입력한 Key값으로 배열을 객체로 변환", () => {
+    expect(
+      convertArrayToObject(
+        [
+          { name: "country", type: "string" },
+          { name: "region", type: "string" },
+          { name: "city", type: "string" },
+          { name: "uniqueEventCount", type: "number" },
+        ],
+        topReferralTable
+      )
+    ).toEqual([
+      {
+        city: "guro-gu",
+        country: "kr",
+        region: "seoul",
+        uniqueEventCount: 119,
+      },
+      {
+        city: "namyangju",
+        country: "kr",
+        region: "gyeonggi-do",
+        uniqueEventCount: 25,
+      },
+      {
+        city: "pocheon-si",
+        country: "kr",
+        region: "gyeonggi-do",
+        uniqueEventCount: 4,
+      },
+    ]);
+  });
+  it("문자열 값 중 빈 값이 있다면 (empty)로 입력", () => {
+    expect(
+      convertArrayToObject(
+        [
+          { name: "country", type: "string" },
+          { name: "region", type: "string" },
+          { name: "city", type: "string" },
+          { name: "uniqueEventCount", type: "number" },
+        ],
+        [["kr", "", "pocheon-si", "0"]]
+      )
+    ).toEqual([
+      {
+        city: "pocheon-si",
+        country: "kr",
+        region: "(empty)",
+        uniqueEventCount: 0,
+      },
+    ]);
   });
 });
