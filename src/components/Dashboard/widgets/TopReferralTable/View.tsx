@@ -11,19 +11,7 @@ export default function View() {
     dataSet: "Commodity",
     rowLength: 100,
     editable: true,
-    visibleFields: [
-      "commodity",
-      "quantity",
-      "filledQuantity",
-      "status",
-      "isFilled",
-      "unitPrice",
-      "unitPriceCurrency",
-      "subTotal",
-      "feeRate",
-      "feeAmount",
-      "incoTerm",
-    ],
+    visibleFields: ["commodity", "status", "quantity", "incoTerm"],
   });
   const apiRef = useGridApiRef();
 
@@ -33,7 +21,7 @@ export default function View() {
       ...data.initialState,
       rowGrouping: {
         ...data.initialState?.rowGrouping,
-        model: ["commodity", "incoTerm"],
+        model: ["commodity", "status", "incoTerm"],
       },
       sorting: {
         sortModel: [{ field: "__row_group_by_columns_group__", sort: "asc" }],
@@ -45,6 +33,7 @@ export default function View() {
       },
     },
   });
+  console.log(data);
 
   return (
     <DataGridPremium
