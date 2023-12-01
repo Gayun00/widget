@@ -42,14 +42,16 @@ export default function View({ columns, rows, isLoading }: Props) {
   });
 
   return (
-    <DataGridPremium
-      rows={rows}
-      columns={columns}
-      apiRef={apiRef}
-      loading={isLoading}
-      disableRowSelectionOnClick
-      initialState={initialState}
-      slots={{ toolbar: GridToolbar }}
-    />
+    <div className="w-full h-full">
+      <DataGridPremium
+        rows={rows}
+        columns={columns}
+        apiRef={apiRef}
+        loading={isLoading}
+        disableRowSelectionOnClick
+        initialState={initialState}
+        slots={{ toolbar: GridToolbar }}
+      />
+    </div>
   );
 }

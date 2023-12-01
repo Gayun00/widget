@@ -1,4 +1,6 @@
-import React from "react";
+import { useTopReferralAreaQuery } from "@/queries";
+import { useMemo } from "react";
+import { convertArrayToObject } from "@/utils/handleData";
 import View from "./View";
 
 const COLUMNS = [
@@ -35,25 +37,23 @@ const COLUMNS = [
     type: "number",
   },
 ];
-const rows = [
-  {
-    id: "3",
-    country: "USA",
-    region: "California",
-    city: "New York",
-    uniqueEventCount: 20,
-  },
-  {
-    id: "30",
-    country: "USA",
-    region: "California",
-    city: "New York",
-    uniqueEventCount: 20,
-  },
-];
 
 function TopReferralTable() {
-  return <View columns={COLUMNS} rows={rows} isLoading={false} />;
+  const { data: topReferral } = useTopReferralAreaQuery();
+  const data = useMemo(
+    () =>
+      convertArrayToObject(
+        [
+          { name: "country", type: "string" },
+          { name: "region", type: "string" },
+          { name: "city", type: "string" },
+          { name: "uniqueEventCount", type: "number" },
+        ],
+        topReferral?.data?.rows || []
+      ),
+    [topReferral]
+  );
+  return <View columns={COLUMNS} rows={data} isLoading={false} />;
 }
 
 export default TopReferralTable;

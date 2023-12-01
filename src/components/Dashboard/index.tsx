@@ -5,6 +5,7 @@ import UniqueEventCountSum from "./widgets/UniqueEventCountSum";
 import TotalEventCountSum from "./widgets/TotalEventCountSum";
 import DAU from "./widgets/DAU";
 import TopReferralPie from "./widgets/TopReferralPie";
+import TopReferralTable from "./widgets/TopReferralTable";
 import "./index.css";
 
 const ReactGridLayout = WidthProvider(RGL);
@@ -27,8 +28,8 @@ const initialLayout = [
   { x: 0, y: 0, w: 6, h: 7, i: "0" },
   { x: 6, y: 0, w: 6, h: 7, i: "1" },
   { x: 0, y: 7, w: 12, h: 8, i: "2" },
-  { x: 0, y: 14, w: 6, h: 8, i: "3" },
-  { x: 6, y: 14, w: 6, h: 8, i: "4" },
+  { x: 0, y: 14, w: 6, h: 10, i: "3" },
+  { x: 6, y: 14, w: 6, h: 10, i: "4" },
 ];
 
 const Dashboard = ({ className, rowHeight, cols }: Props) => {
@@ -71,7 +72,9 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
       <div key="3">
         <TopReferralPie />
       </div>
-      <div key="4">{/* TODO: TopReferralTable 추가 */}</div>
+      <div key="4">
+        <TopReferralTable />
+      </div>
     </ReactGridLayout>
   );
 };
