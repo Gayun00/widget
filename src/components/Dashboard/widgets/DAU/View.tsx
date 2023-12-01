@@ -1,3 +1,4 @@
+import { Card } from "@/components/ui/card";
 import { ApexOptions } from "apexcharts";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
@@ -51,27 +52,27 @@ const View = ({ dates, column, line }: Props) => {
     yaxis: [
       {
         title: {
-          text: "Total event count",
+          text: column.name,
         },
       },
       {
         opposite: true,
         title: {
-          text: "Unique event count",
+          text: line.name,
         },
       },
     ],
   });
 
   return (
-    <div id="chart">
+    <Card className=" h-full">
       <ReactApexChart
         options={options}
         series={series}
         type="line"
-        height={350}
+        height={280}
       />
-    </div>
+    </Card>
   );
 };
 

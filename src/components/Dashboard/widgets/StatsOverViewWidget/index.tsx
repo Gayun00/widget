@@ -1,10 +1,4 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { formatNumberWithCommas } from "@/utils/handleData";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
@@ -25,7 +19,7 @@ function StatsOverViewWidget({
   changeRate,
 }: Props) {
   return (
-    <Card>
+    <Card className="w-full h-full">
       <CardHeader>
         <CardTitle className="text-sm text-primary font-bold">
           {title}
@@ -36,7 +30,7 @@ function StatsOverViewWidget({
           <Badge variant="secondary">{type}</Badge>
           <p className="text-sm">{property}</p>
         </div>
-        <CardDescription className="space-y-3">
+        <div className="space-y-3">
           <p className="text-4xl font-extrabold text-black">
             {formatNumberWithCommas(data)}
           </p>
@@ -48,7 +42,7 @@ function StatsOverViewWidget({
             )}
             <p className="text-primary">{changeRate}</p>
           </div>
-        </CardDescription>
+        </div>
       </CardContent>
     </Card>
   );

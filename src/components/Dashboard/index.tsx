@@ -1,16 +1,17 @@
-import { useState } from "react";
-import _ from "lodash";
+import { STORAGE_KEY } from "@/constants";
+import { useEffect, useState } from "react";
 import RGL, { WidthProvider } from "react-grid-layout";
+import UniqueEventCountSum from "./widgets/UniqueEventCountSum";
+import TotalEventCountSum from "./widgets/TotalEventCountSum";
+import DAU from "./widgets/DAU";
+import TopReferralPie from "./widgets/TopReferralPie";
 import "./index.css";
-import { useUsersQuery } from "@/queries";
 
 const ReactGridLayout = WidthProvider(RGL);
 
 interface Props {
   className: string;
-  items: number;
   rowHeight: number;
-  onLayoutChange: (layout: Layout[]) => void;
   cols: number;
 }
 
@@ -22,43 +23,34 @@ interface Layout {
   i: string;
 }
 
-const BasicLayout = ({
-  className,
-  items,
-  rowHeight,
-  onLayoutChange,
-  cols,
-}: Props) => {
-  const [layout, setLayout] = useState(generateLayout());
+const initialLayout = [
+  { x: 0, y: 0, w: 6, h: 7, i: "0" },
+  { x: 6, y: 0, w: 6, h: 7, i: "1" },
+  { x: 0, y: 7, w: 12, h: 8, i: "2" },
+  { x: 0, y: 14, w: 6, h: 8, i: "3" },
+  { x: 6, y: 14, w: 6, h: 8, i: "4" },
+];
 
-  function generateDOM() {
-    return _.map(_.range(items), function (i) {
-      return (
-        <div key={i}>
-          <span className="grid-item">{i}</span>
-        </div>
-      );
-    });
-  }
-
-  function generateLayout() {
-    return _.map(new Array(items), function (_, i) {
-      const y = Math.ceil(Math.random() * 4) + 1;
-
-      return {
-        x: (i * 2) % 12,
-        y: Math.floor(i / 6) * y,
-        w: 2,
-        h: y,
-        i: i.toString(),
-      };
-    });
-  }
+const Dashboard = ({ className, rowHeight, cols }: Props) => {
+  const savedLayout = localStorage.getItem(STORAGE_KEY.DASHBOARD_LAYOUT_1);
+  const [layout, setLayout] = useState(
+    savedLayout ? JSON.parse(savedLayout) : initialLayout
+  );
 
   const handleLayoutChange = (newLayout: Layout[]) => {
     setLayout(newLayout);
-    onLayoutChange(newLayout);
+    localStorage.setItem(
+      STORAGE_KEY.DASHBOARD_LAYOUT_1,
+      JSON.stringify(layout)
+    );
   };
+
+  useEffect(() => {
+    localStorage.setItem(
+      STORAGE_KEY.DASHBOARD_LAYOUT_1,
+      JSON.stringify(layout)
+    );
+  }, [layout]);
 
   return (
     <ReactGridLayout
@@ -67,17 +59,27 @@ const BasicLayout = ({
       onLayoutChange={handleLayoutChange}
       rowHeight={rowHeight}
       cols={cols}>
-      {generateDOM()}
+      <div key="0">
+        <UniqueEventCountSum />
+      </div>
+      <div key="1">
+        <TotalEventCountSum />
+      </div>
+      <div key="2">
+        <DAU startDate="2022-03-23" endDate="2022-03-28" />
+      </div>
+      <div key="3">
+        <TopReferralPie />
+      </div>
+      {/* TODO: TopReferralTable 추가 */}
     </ReactGridLayout>
   );
 };
 
-BasicLayout.defaultProps = {
+Dashboard.defaultProps = {
   className: "layout",
-  items: 20,
   rowHeight: 30,
-  onLayoutChange: function () {},
   cols: 12,
 };
 
-export default BasicLayout;
+export default Dashboard;
