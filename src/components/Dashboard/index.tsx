@@ -71,7 +71,7 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
       <div key="3">
         <TopReferralPie />
       </div>
-      {/* TODO: TopReferralTable 추가 */}
+      <div key="4">{/* TODO: TopReferralTable 추가 */}</div>
     </ReactGridLayout>
   );
 };

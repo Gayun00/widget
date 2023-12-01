@@ -5,61 +5,23 @@ import {
   useKeepGroupedColumnsHidden,
 } from "@mui/x-data-grid-premium";
 
-const COLUMNS = [
-  {
-    id: "123",
-    field: "country",
-    headerName: "Country",
-    hide: false,
-    width: 110,
-    aggregable: true,
-  },
-  {
-    id: "234",
-    field: "region",
-    headerName: "Region",
-    hide: false,
-    width: 110,
-    aggregable: true,
-  },
-  {
-    id: "345",
-    field: "city",
-    headerName: "City",
-    hide: false,
-    width: 110,
-    aggregable: true,
-  },
-  {
-    id: "456",
-    field: "uniqueEventCount",
-    headerName: "Unique event count",
-    hide: false,
-    width: 110,
-    type: "number",
-  },
-];
+interface Props {
+  columns: {
+    id: string;
+    field: string;
+    headerName: string;
+    hide: boolean;
+    width: number;
+    aggregable?: boolean;
+    type?: string;
+  }[];
+  rows: Array<{
+    [key: string]: string | number;
+  }>;
+  isLoading: boolean;
+}
 
-// TODO: api 응답값으로 교체
-const rows = [
-  {
-    id: "3",
-    country: "USA",
-    region: "California",
-    city: "New York",
-    uniqueEventCount: 20,
-  },
-  {
-    id: "30",
-    country: "USA",
-    region: "California",
-    city: "New York",
-    uniqueEventCount: 20,
-  },
-];
-const loading = false;
-
-export default function View() {
+export default function View({ columns, rows, isLoading }: Props) {
   const apiRef = useGridApiRef();
 
   const initialState = useKeepGroupedColumnsHidden({
@@ -82,9 +44,9 @@ export default function View() {
   return (
     <DataGridPremium
       rows={rows}
-      columns={COLUMNS}
+      columns={columns}
       apiRef={apiRef}
-      loading={loading}
+      loading={isLoading}
       disableRowSelectionOnClick
       initialState={initialState}
       slots={{ toolbar: GridToolbar }}
