@@ -21,3 +21,9 @@ export const topReferral = [
   ["adpick.co.kr", "1"],
   ["madup.atlassian.net", "1"],
 ];
+
+export const topReferralTable = [
+  ["kr", "seoul", "guro-gu", "119"],
+  ["kr", "gyeonggi-do", "namyangju", "25"],
+  ["kr", "gyeonggi-do", "pocheon-si", "4"],
+];

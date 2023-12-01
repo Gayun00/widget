@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import { v4 as uuid } from "uuid";
 
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
@@ -102,4 +103,25 @@ export const generateDateArray = (startDate: string, endDate: string) => {
 
 export const formatNumberWithCommas = (number: number) => {
   return number?.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+};
+
+export const convertArrayToObject = (
+  keys: {
+    name: string;
+    type: "string" | "number";
+  }[],
+  data: string[][]
+) => {
+  return data.map((item) => {
+    const obj: Record<string, string | number> = {};
+    keys.forEach((key, index) => {
+      obj["id"] = uuid();
+      if (key.type === "string") {
+        obj[key.name] = item[index].length ? item[index] : "(empty)";
+      } else {
+        obj[key.name] = parseInt(item[index], 10);
+      }
+    });
+    return obj;
+  });
 };

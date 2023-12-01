@@ -12,3 +12,9 @@ export const getTopReferral = () => {
     path: "/event_3.json",
   });
 };
+
+export const getTopReferralArea = () => {
+  return request.get<null, Response>({
+    path: "/event_4.json",
+  });
+};
