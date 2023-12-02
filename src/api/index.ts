@@ -1,7 +1,7 @@
 import { request } from "@/utils/xhrRequest";
 import { Response } from "@/types/api";
 
-export const getUsers = () => {
+export const getUserEvents = () => {
   return request
     .get<null, Response>({
       path: "/event_1.json",
