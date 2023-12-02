@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getTopReferral, getUsers, getTopReferralArea } from "../api";
+import { getTopReferral, getUsers, getTopReferralArea } from "@/api";
 
 export const useUsersQuery = () => {
   return useQuery({ queryKey: ["userEvents"], queryFn: getUsers });

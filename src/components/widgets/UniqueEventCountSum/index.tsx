@@ -1,17 +1,20 @@
 import { useMemo } from "react";
-import StatsOverViewWidget from "../StatsOverViewWidget";
+import { getUniqueEventSumByDate } from "@/utils/handleData";
+import StatsOverViewWidget from "@/components/widgets/StatsOverViewWidget";
 import { useUsersQuery } from "@/queries";
-import { getTotalEventSumByDate } from "@/utils/handleData";
+// import dayjs from "dayjs";
 
-function TotalEventCountSum() {
+function UniqueEventCountSum() {
   const { data: userEvents } = useUsersQuery();
+
   // TODO: 날짜 선택 기능 추가 후 교체. 현재는 데이터 처리 가능한 날짜로 임시 지정
   // const date = dayjs().format("YYYY-MM-DD");
   const date = "2022-03-23";
   const data: number | undefined = useMemo(() => {
     if (!userEvents) return;
-    return getTotalEventSumByDate(userEvents.data.rows, date);
+    return getUniqueEventSumByDate(userEvents.data.rows, date);
   }, [userEvents, date]);
+
   return (
     <>
       {data && (
@@ -27,4 +30,4 @@ function TotalEventCountSum() {
   );
 }
 
-export default TotalEventCountSum;
+export default UniqueEventCountSum;

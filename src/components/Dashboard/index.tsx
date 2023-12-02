@@ -1,14 +1,14 @@
-import { STORAGE_KEY } from "@/constants";
 import { useEffect, useState } from "react";
 import RGL, { WidthProvider } from "react-grid-layout";
-import UniqueEventCountSum from "./widgets/UniqueEventCountSum";
-import TotalEventCountSum from "./widgets/TotalEventCountSum";
-import DAU from "./widgets/DAU";
-import TopReferralPie from "./widgets/TopReferralPie";
-import TopReferralTable from "./widgets/TopReferralTable";
+import { STORAGE_KEY } from "@/constants";
+import { Button } from "@/components/ui/button";
+import { Toggle } from "@/components/ui/toggle";
+import DAU from "@/components/widgets/DAU";
+import TopReferralPie from "@/components/widgets/TopReferralPie";
+import TopReferralTable from "@/components/widgets/TopReferralTable";
+import TotalEventCountSum from "@/components/widgets/TotalEventCountSum";
+import UniqueEventCountSum from "@/components/widgets/UniqueEventCountSum";
 import "./index.css";
-import { Toggle } from "../ui/toggle";
-import { Button } from "../ui/button";
 
 const ReactGridLayout = WidthProvider(RGL);
 

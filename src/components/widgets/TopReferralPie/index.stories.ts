@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from "../TopReferralPie/View";
+import Component from "./View";
 
 const meta: Meta<typeof Component> = {
   title: "widgets/TopReferralPie",

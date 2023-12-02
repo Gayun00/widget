@@ -1,7 +1,7 @@
-import { useTopReferralAreaQuery } from "@/queries";
 import { useMemo } from "react";
 import { convertArrayToObject } from "@/utils/handleData";
 import View from "./View";
+import { useTopReferralAreaQuery } from "@/queries";
 
 const COLUMNS = [
   {
