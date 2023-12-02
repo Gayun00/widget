@@ -4089,6 +4089,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-devtools@npm:5.12.1":
+  version: 5.12.1
+  resolution: "@tanstack/query-devtools@npm:5.12.1"
+  checksum: 1956ef3edb9f54bae2c80a0a6ffbdcfe9167078f187d05db42a507675e6099857f41f1a5523eeed27dd3e1d2f878c6cf14c5912313823ed49532e210eaf3492a
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.12.1":
+  version: 5.12.1
+  resolution: "@tanstack/react-query-devtools@npm:5.12.1"
+  dependencies:
+    "@tanstack/query-devtools": 5.12.1
+  peerDependencies:
+    "@tanstack/react-query": ^5.12.1
+    react: ^18.0.0
+  checksum: b54af592c5ba57741002151bc921ebddbc7f77a62f25ba366f31de82f2e54dda8493b09ca7e6ed8d35f2904506b612267ea39570a489001f4c2574a12e04d78b
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.9.0":
   version: 5.10.0
   resolution: "@tanstack/react-query@npm:5.10.0"
@@ -4568,6 +4587,15 @@ __metadata:
   dependencies:
     "@types/react": "*"
   checksum: 59e92cac78712bf527e8c9147f70c121a9a7f6faaf1ee5c979c38a9e9445148f5003d6a37a769b6695fdca65e71567033858fc0e1371937c79dcb35f4b36ae5e
+  languageName: node
+  linkType: hard
+
+"@types/react-table@npm:^7.7.18":
+  version: 7.7.18
+  resolution: "@types/react-table@npm:7.7.18"
+  dependencies:
+    "@types/react": "*"
+  checksum: e3b909db24b20eaa596a30c1e1f994c16382f5d969f59a64b3fe212150883117a27dbac32a88649e96b189b90228708296a8e887158a5af2452fa7fa0584c3af
   languageName: node
   linkType: hard
 
@@ -8193,12 +8221,14 @@ __metadata:
     "@storybook/react-vite": ^7.6.1
     "@storybook/test": ^7.6.1
     "@tanstack/react-query": ^5.9.0
+    "@tanstack/react-query-devtools": ^5.12.1
     "@tanstack/react-table": ^8.10.7
     "@types/lodash": ^4.14.202
     "@types/node": ^20.10.2
     "@types/react": ^18.2.37
     "@types/react-dom": ^18.2.15
     "@types/react-grid-layout": ^1.3.5
+    "@types/react-table": ^7.7.18
     "@typescript-eslint/eslint-plugin": ^6.10.0
     "@typescript-eslint/parser": ^6.10.0
     "@vitejs/plugin-react": ^4.2.0
@@ -8222,6 +8252,7 @@ __metadata:
     react-dom: ^18.2.0
     react-grid-layout: ^1.4.4
     react-icons: ^4.12.0
+    react-table: ^7.8.0
     storybook: ^7.6.1
     tailwind-merge: ^2.0.0
     tailwindcss: ^3.3.5
@@ -10805,6 +10836,15 @@ __metadata:
     "@types/react":
       optional: true
   checksum: 7ee8ef3aab74c7ae1d70ff34a27643d11ba1a8d62d072c767827d9ff9a520905223e567002e0bf6c772929d8ea1c781a3ba0cc4a563e92b1e3dc2eaa817ecbe8
+  languageName: node
+  linkType: hard
+
+"react-table@npm:^7.8.0":
+  version: 7.8.0
+  resolution: "react-table@npm:7.8.0"
+  peerDependencies:
+    react: ^16.8.3 || ^17.0.0-0 || ^18.0.0
+  checksum: 44ca0fb848c6869cd793cede8dc33072b38ebb8f8d2833565afe7cf3eac5d1fa455ac5fb9d06838b16fab0523d5d03e3e82f7645032f71245096e67b892313b9
   languageName: node
   linkType: hard
 

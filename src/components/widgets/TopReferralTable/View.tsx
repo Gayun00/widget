@@ -1,57 +1,111 @@
+import React from "react";
 import {
-  DataGridPremium,
-  GridToolbar,
-  useGridApiRef,
-  useKeepGroupedColumnsHidden,
-} from "@mui/x-data-grid-premium";
+  useReactTable,
+  getCoreRowModel,
+  getGroupedRowModel,
+  getExpandedRowModel,
+  flexRender,
+  getSortedRowModel,
+  GroupingState,
+  ColumnDef,
+} from "@tanstack/react-table";
+import { TopReferralTableData } from "@/types/api";
+import WidgetLayout from "../WidgetLayout";
 
 interface Props {
-  columns: {
-    id: string;
-    field: string;
-    headerName: string;
-    hide: boolean;
-    width: number;
-    aggregable?: boolean;
-    type?: string;
-  }[];
-  rows: Array<{
-    [key: string]: string | number;
-  }>;
+  title: string;
+  columns: ColumnDef<TopReferralTableData>[];
+  rows: TopReferralTableData[];
   isLoading: boolean;
 }
 
-export default function View({ columns, rows, isLoading }: Props) {
-  const apiRef = useGridApiRef();
+export default function View({ title, columns, rows }: Props) {
+  const [grouping] = React.useState<GroupingState>([
+    "country",
+    "region",
+    "city",
+  ]);
 
-  const initialState = useKeepGroupedColumnsHidden({
-    apiRef,
-    initialState: {
-      rowGrouping: {
-        model: ["country", "region", "city"],
-      },
-      sorting: {
-        sortModel: [{ field: "__row_group_by_columns_group__", sort: "asc" }],
-      },
-      aggregation: {
-        model: {
-          uniqueEventCount: "sum",
-        },
-      },
+  const table = useReactTable({
+    data: rows,
+    columns,
+    state: {
+      grouping,
     },
+    getCoreRowModel: getCoreRowModel(),
+    getGroupedRowModel: getGroupedRowModel(),
+    getExpandedRowModel: getExpandedRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
 
   return (
-    <div className="w-full h-full">
-      <DataGridPremium
-        rows={rows}
-        columns={columns}
-        apiRef={apiRef}
-        loading={isLoading}
-        disableRowSelectionOnClick
-        initialState={initialState}
-        slots={{ toolbar: GridToolbar }}
-      />
-    </div>
+    <WidgetLayout title={title} hasData={!!rows}>
+      <div className="p-2">
+        <table>
+          <thead>
+            {table.getHeaderGroups().map((headerGroup) => (
+              <tr key={headerGroup.id}>
+                {headerGroup.headers.map((header) => (
+                  <th key={header.id} colSpan={header.colSpan}>
+                    <button onClick={header.column.getToggleSortingHandler()}>
+                      sort{" "}
+                    </button>
+                    {flexRender(
+                      header.column.columnDef.header,
+                      header.getContext()
+                    )}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody>
+            {table.getRowModel().rows.map((row) => {
+              return (
+                <tr key={row.id}>
+                  {row.getVisibleCells().map((cell) => {
+                    return (
+                      <td key={cell.id}>
+                        {cell.getIsGrouped() ? (
+                          <>
+                            <button
+                              {...{
+                                onClick: row.getToggleExpandedHandler(),
+                                style: {
+                                  cursor: row.getCanExpand()
+                                    ? "pointer"
+                                    : "normal",
+                                },
+                              }}>
+                              {row.getIsExpanded() ? "👇" : "👉"}{" "}
+                              {flexRender(
+                                cell.column.columnDef.cell,
+                                cell.getContext()
+                              )}{" "}
+                              ({row.subRows.length})
+                            </button>
+                          </>
+                        ) : cell.getIsAggregated() ? (
+                          flexRender(
+                            cell.column.columnDef.aggregatedCell ??
+                              cell.column.columnDef.cell,
+                            cell.getContext()
+                          )
+                        ) : cell.getIsPlaceholder() ? null : (
+                          flexRender(
+                            cell.column.columnDef.cell,
+                            cell.getContext()
+                          )
+                        )}
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+    </WidgetLayout>
   );
 }
