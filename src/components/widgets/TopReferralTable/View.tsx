@@ -9,6 +9,9 @@ import {
   GroupingState,
   ColumnDef,
 } from "@tanstack/react-table";
+import { FaSort } from "react-icons/fa6";
+import { FaRegArrowAltCircleRight } from "react-icons/fa";
+import { FaCircleArrowDown } from "react-icons/fa6";
 import { TopReferralTableData } from "@/types/api";
 import WidgetLayout from "../WidgetLayout";
 
@@ -39,16 +42,19 @@ export default function View({ title, columns, rows }: Props) {
   });
 
   return (
-    <WidgetLayout title={title} hasData={!!rows}>
+    <WidgetLayout title={title} hasData={!!rows} isScrollable>
       <div className="p-2">
-        <table>
+        <table className="h-full">
           <thead>
             {table.getHeaderGroups().map((headerGroup) => (
               <tr key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <th key={header.id} colSpan={header.colSpan}>
+                  <th
+                    key={header.id}
+                    colSpan={header.colSpan}
+                    className="border-2">
                     <button onClick={header.column.getToggleSortingHandler()}>
-                      sort{" "}
+                      <FaSort />{" "}
                     </button>
                     {flexRender(
                       header.column.columnDef.header,
@@ -59,16 +65,17 @@ export default function View({ title, columns, rows }: Props) {
               </tr>
             ))}
           </thead>
-          <tbody>
+          <tbody className="w-full h-full">
             {table.getRowModel().rows.map((row) => {
               return (
                 <tr key={row.id}>
                   {row.getVisibleCells().map((cell) => {
                     return (
-                      <td key={cell.id}>
+                      <td key={cell.id} className="border-2">
                         {cell.getIsGrouped() ? (
                           <>
                             <button
+                              className="flex items-center gap-x-2"
                               {...{
                                 onClick: row.getToggleExpandedHandler(),
                                 style: {
@@ -77,7 +84,11 @@ export default function View({ title, columns, rows }: Props) {
                                     : "normal",
                                 },
                               }}>
-                              {row.getIsExpanded() ? "👇" : "👉"}{" "}
+                              {row.getIsExpanded() ? (
+                                <FaCircleArrowDown />
+                              ) : (
+                                <FaRegArrowAltCircleRight />
+                              )}{" "}
                               {flexRender(
                                 cell.column.columnDef.cell,
                                 cell.getContext()
