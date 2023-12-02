@@ -1,30 +1,56 @@
-# React + TypeScript + Vite
+### 대시보드 위젯 구현
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+#### Tech stack
 
-Currently, two official plugins are available:
+| 프레임워크                                                                                                             | 언어                                                                                                                      | 빌드 도구                                                                                                            |
+| ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| <img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=white&style=flat&border"> | <img src="https://img.shields.io/badge/Typescript-3178C6?style=for-the-badge&logo=Typescript&style=flat&logoColor=white"> | <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=Vite&logoColor=white&style=flat&border"> |
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+|
 
-## Expanding the ESLint configuration
+| 상태관리 라이브러리                                                                                                               | 유닛 테스트                                                                                                              | 컴포넌트 문서화                                                                                                                |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
+| <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&style=flat&logo=ReactQuery&logoColor=white&border"> | <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=Vitest&logoColor=white&style=flat&border"> | <img src="https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&style=flat&logoColor=white&border"> |
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+|
 
-- Configure the top-level `parserOptions` property like this:
+#### Overview
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+##### 위젯 레이아웃
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- 레이아웃 고정 및 초기화 버튼
+- 레이아웃 위치 이동 및 리사이징 기능
+
+##### 접속 유저 총합
+
+##### 접속 횟수 총합
+
+##### DAU
+
+##### Top referral pie chart
+
+- 4위까지 파이차트 표시
+- 5위부터 etc로 총합 표시
+
+##### Top referral table
+
+- country > region > city 순서의 depth로 row grouping
+- group별 unique event count 부분합 표시
+
+<br>
+
+#### Folder structure
+
+#### Convention
+
+##### commit
+
+##### branch
+
+- trunk-based-development
+
+#### CI/CD
+
+##### test
+
+- vitest
