@@ -9,6 +9,7 @@ interface Props {
 }
 
 function DAU({ startDate, endDate }: Props) {
+  // TODO: 상위 컴포넌트에서 호출하도록 변경
   const { data: userEvents, isLoading } = useUsersQuery();
   const uniqueEventCounts = useMemo(
     () =>
@@ -36,6 +37,7 @@ function DAU({ startDate, endDate }: Props) {
   return (
     <>
       {isLoading ? (
+        // TODO: loading indicator 추가
         <p>is loading</p>
       ) : (
         <View
