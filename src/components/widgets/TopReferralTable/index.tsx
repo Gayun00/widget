@@ -5,7 +5,7 @@ import { useTopReferralAreaQuery } from "@/queries";
 
 const COLUMNS = [
   {
-    id: "123",
+    id: "country",
     field: "country",
     headerName: "Country",
     hide: false,
@@ -13,7 +13,7 @@ const COLUMNS = [
     aggregable: true,
   },
   {
-    id: "234",
+    id: "region",
     field: "region",
     headerName: "Region",
     hide: false,
@@ -21,7 +21,7 @@ const COLUMNS = [
     aggregable: true,
   },
   {
-    id: "345",
+    id: "city",
     field: "city",
     headerName: "City",
     hide: false,
@@ -29,7 +29,7 @@ const COLUMNS = [
     aggregable: true,
   },
   {
-    id: "456",
+    id: "uniqueEventCount",
     field: "uniqueEventCount",
     headerName: "Unique event count",
     hide: false,
@@ -49,7 +49,7 @@ function TopReferralTable() {
           { name: "city", type: "string" },
           { name: "uniqueEventCount", type: "number" },
         ],
-        topReferral?.data?.rows || []
+        topReferral || []
       ),
     [topReferral]
   );

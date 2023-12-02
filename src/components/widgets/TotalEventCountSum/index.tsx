@@ -10,7 +10,7 @@ function TotalEventCountSum() {
   const date = "2022-03-23";
   const data: number | undefined = useMemo(() => {
     if (!userEvents) return;
-    return getTotalEventSumByDate(userEvents.data.rows, date);
+    return getTotalEventSumByDate(userEvents, date);
   }, [userEvents, date]);
   return (
     <>
