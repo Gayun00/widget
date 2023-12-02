@@ -1,11 +1,20 @@
 ### 대시보드 위젯 구현
-#### Link
+#### 🔗 Link
 
 [배포 링크](https://widget-flax-five.vercel.app/)
 
 [storybook 배포 링크](https://656aaa28d5bd7307b90bc2bd-ffmnvuvrmr.chromatic.com/?path=/docs/widgets-statsoverviewwidget--docs)
 
 <br>
+
+#### Overview
+
+|접속 유저/횟수 총합, DAU|Top referral pie/table|
+|--|--|
+|<img width="1425" alt="스크린샷 2023-12-02 오후 9 36 32" src="https://github.com/Gayun00/widget/assets/67543454/82431198-6bd5-4aca-9b0c-d34a50ccd57f">|<img width="1422" alt="스크린샷 2023-12-02 오후 9 36 53" src="https://github.com/Gayun00/widget/assets/67543454/b79f8a03-ea97-4d47-a2ed-d7886727e260">|
+
+<br>
+
 
 #### Tech stack
 
@@ -23,7 +32,7 @@
 <br>
 
 
-#### 구현 사항
+#### 📒 구현 사항
 
 ##### 접속 유저의 총합
 - [x] 1. 일자별 데이터 합산 표현 
@@ -54,15 +63,20 @@ Serial 차트
 <br>
 
 
-#### 추가 구현 사항
-- 레이아웃 고정 버튼: 위젯의 위치를 고정하고, 내부 콘텐츠를 클릭 및 조정할 수 있습니다. 
-- 레이아웃 초기화: 위젯을 리사이징하거나 위치를 변경한 이후 레이아웃을 초기화할 수 있습니다.
+#### 📒 (참고) 추가 구현 사항
+
+|레이아웃 고정 버튼|레이아웃 초기화|
+|--|--|
+|위젯의 위치를 고정하고, 내부 콘텐츠를 클릭 및 조정할 수 있습니다. (TopReferral table 조작 시 참고)
+![ezgif com-video-to-gif (2)](https://github.com/Gayun00/widget/assets/67543454/80b16524-ed80-4768-9e7a-51f8a6324ffe)|위젯을 리사이징하거나 위치를 변경한 이후 레이아웃을 초기화할 수 있습니다.![ezgif com-video-to-gif (3)](https://github.com/Gayun00/widget/assets/67543454/90e925a5-389c-4f3d-9cba-b04e5165d9ae)|
+
+
 
 
 
 <br>
 
-#### Point
+#### 📒 Point
 - 스토리북을 사용해 독립적인 UI만을 담당하는 컴포넌트를 분리해 설계하고 문서화했습니다.
   - 데이터에 따른 각 비주얼라이징 타입별 위젯이 어떻게 표시되는지 제 3자가 빠르게 파악할 수 있고, 협업이 용이하도록 했습니다.
   - 필요에 따라 presentational/ container component를 분리하여 테스트에 용이한 컴포넌트를 작성했습니다.
@@ -77,13 +91,13 @@ Serial 차트
 
 <br>
 
-#### Test
+#### 🧪 Test
 - vitest를 사용해 유닛 테스트 코드를 작성해 필요한 로직을 검증했습니다.
 
 <br>
 
 
-#### CI/CD
+#### 📒 CI/CD
 
 - unit test pre-commit
   - husky pre-commit을 사용해 작성한 유닛 테스트 코드로 리팩토링 및 추가 작업에 대한 안정성을 확보할 수 있도록 했습니다.
@@ -95,5 +109,5 @@ Serial 차트
 
 <br>
 
-#### Task
+#### 📒 Task
 - github issue 생성을 통해 task를 관리하고, 관련 PR에 연결해 쉽게 찾아보고 히스토리를 관리할 수 있도록 했습니다.
