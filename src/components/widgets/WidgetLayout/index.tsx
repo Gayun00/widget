@@ -1,4 +1,4 @@
-import React, { ReactNode } from "react";
+import { ReactNode } from "react";
 import EmptyWidgetData from "@/components/fallbacks/EmptyWidgetData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
