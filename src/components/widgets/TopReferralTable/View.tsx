@@ -4,8 +4,10 @@ import {
   useGridApiRef,
   useKeepGroupedColumnsHidden,
 } from "@mui/x-data-grid-premium";
+import WidgetLayout from "../WidgetLayout";
 
 interface Props {
+  title: string;
   columns: {
     id: string;
     field: string;
@@ -21,7 +23,7 @@ interface Props {
   isLoading: boolean;
 }
 
-export default function View({ columns, rows, isLoading }: Props) {
+export default function View({ title, columns, rows, isLoading }: Props) {
   const apiRef = useGridApiRef();
 
   const initialState = useKeepGroupedColumnsHidden({
@@ -42,16 +44,18 @@ export default function View({ columns, rows, isLoading }: Props) {
   });
 
   return (
-    <div className="w-full h-full">
-      <DataGridPremium
-        rows={rows}
-        columns={columns}
-        apiRef={apiRef}
-        loading={isLoading}
-        disableRowSelectionOnClick
-        initialState={initialState}
-        slots={{ toolbar: GridToolbar }}
-      />
-    </div>
+    <WidgetLayout title={title} hasData={!!rows.length}>
+      <div className="w-full h-full">
+        <DataGridPremium
+          rows={rows}
+          columns={columns}
+          apiRef={apiRef}
+          loading={isLoading}
+          disableRowSelectionOnClick
+          initialState={initialState}
+          slots={{ toolbar: GridToolbar }}
+        />
+      </div>
+    </WidgetLayout>
   );
 }

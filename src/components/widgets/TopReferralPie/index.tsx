@@ -11,7 +11,7 @@ function TopReferralPie() {
   const data = generateSumArrayOfKey(topReferral?.data.rows, 1, 4);
   if (!data) return;
   const { keys, values } = seperateKeyValuesFromArray(data);
-  return <View data={values} labels={keys} />;
+  return <View title="Top referrals" data={values} labels={keys} />;
 }
 
 export default TopReferralPie;

@@ -53,7 +53,14 @@ function TopReferralTable() {
       ),
     [topReferral]
   );
-  return <View columns={COLUMNS} rows={data} isLoading={false} />;
+  return (
+    <View
+      title="Top referrals"
+      columns={COLUMNS}
+      rows={data}
+      isLoading={false}
+    />
+  );
 }
 
 export default TopReferralTable;

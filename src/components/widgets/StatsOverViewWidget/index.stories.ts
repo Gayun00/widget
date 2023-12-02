@@ -32,3 +32,12 @@ export const ChangeRateDecreased: Story = {
     changeRate: -93,
   },
 };
+
+export const emptyData: Story = {
+  args: {
+    title: "접속유저",
+    type: "SUM",
+    property: "Unique Event Count",
+    changeRate: -93,
+  },
+};
