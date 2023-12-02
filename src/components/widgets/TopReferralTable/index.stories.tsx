@@ -66,5 +66,6 @@ export const Default: Story = {
         uniqueEventCount: 20,
       },
     ],
+    groupingColumns: ["country", "region", "city"],
   },
 };

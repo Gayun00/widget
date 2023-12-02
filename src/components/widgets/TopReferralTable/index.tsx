@@ -37,6 +37,8 @@ const columns: ColumnDef<TopReferralTableData>[] = [
     aggregatedCell: ({ getValue }) => getValue(),
   },
 ];
+const groupingColumns = ["country", "region", "city"];
+
 function TopReferralTable() {
   const { data: topReferral } = useTopReferralAreaQuery();
   const data = useMemo(() => {
@@ -51,12 +53,13 @@ function TopReferralTable() {
     );
     return result as unknown as TopReferralTableData[];
   }, [topReferral]);
+
   return (
     <View
       title="Top referral"
       columns={columns}
       rows={data}
-      isLoading={false}
+      groupingColumns={groupingColumns}
     />
   );
 }

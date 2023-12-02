@@ -19,15 +19,11 @@ interface Props {
   title: string;
   columns: ColumnDef<TopReferralTableData>[];
   rows: TopReferralTableData[];
-  isLoading: boolean;
+  groupingColumns: string[];
 }
 
-export default function View({ title, columns, rows }: Props) {
-  const [grouping] = React.useState<GroupingState>([
-    "country",
-    "region",
-    "city",
-  ]);
+export default function View({ title, columns, rows, groupingColumns }: Props) {
+  const [grouping] = React.useState<GroupingState>(groupingColumns);
 
   const table = useReactTable({
     data: rows,
