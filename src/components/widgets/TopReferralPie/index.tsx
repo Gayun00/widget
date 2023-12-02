@@ -18,7 +18,7 @@ function TopReferralPie() {
   );
   if (!data) return;
   const { keys, values } = seperateKeyValuesFromArray(data);
-  return <View title="Top referrals" data={values} labels={keys} />;
+  return <View title="Top referral" data={values} labels={keys} />;
 }
 
 export default TopReferralPie;
