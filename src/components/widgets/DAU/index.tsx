@@ -1,7 +1,7 @@
-import { useUsersQuery } from "@/queries";
-import View from "./View";
-import { generateDateArray, generateSumInDateRange } from "@/utils/handleData";
 import { useMemo } from "react";
+import { generateDateArray, generateSumInDateRange } from "@/utils/handleData";
+import View from "./View";
+import { useUsersQuery } from "@/queries";
 
 interface Props {
   startDate: string;

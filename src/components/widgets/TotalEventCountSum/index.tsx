@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import StatsOverViewWidget from "../StatsOverViewWidget";
-import { useUsersQuery } from "@/queries";
 import { getTotalEventSumByDate } from "@/utils/handleData";
+import StatsOverViewWidget from "@/components/widgets/StatsOverViewWidget";
+import { useUsersQuery } from "@/queries";
 
 function TotalEventCountSum() {
   const { data: userEvents } = useUsersQuery();

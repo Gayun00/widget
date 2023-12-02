@@ -1,4 +1,6 @@
 import { describe, it, expect } from "vitest";
+import { removeKeyFromObjectsInArray } from "@/utils/testUtil";
+import { topReferral, topReferralTable, userEvents } from "./mockData";
 import {
   convertArrayToObject,
   formatNumberWithCommas,
@@ -10,8 +12,6 @@ import {
   seperateKeyValuesFromArray,
   sumDataOfKey,
 } from ".";
-import { topReferral, topReferralTable, userEvents } from "./mockData";
-import { removeKeyFromObjectsInArray } from "../testUtil";
 
 describe("sumDataOfKey 테스트", () => {
   it("데이터 중 해당 key의 특정 인덱스 값 총합 리턴", () => {

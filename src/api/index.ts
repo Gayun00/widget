@@ -1,5 +1,5 @@
-import { Response } from "../types/api";
-import { request } from "../utils/xhrRequest";
+import { request } from "@/utils/xhrRequest";
+import { Response } from "@/types/api";
 
 export const getUsers = () => {
   return request.get<null, Response>({

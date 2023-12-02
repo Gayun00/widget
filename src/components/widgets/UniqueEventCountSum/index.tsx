@@ -1,7 +1,7 @@
 import { useMemo } from "react";
-import StatsOverViewWidget from "../StatsOverViewWidget";
-import { useUsersQuery } from "@/queries";
 import { getUniqueEventSumByDate } from "@/utils/handleData";
+import StatsOverViewWidget from "@/components/widgets/StatsOverViewWidget";
+import { useUsersQuery } from "@/queries";
 // import dayjs from "dayjs";
 
 function UniqueEventCountSum() {

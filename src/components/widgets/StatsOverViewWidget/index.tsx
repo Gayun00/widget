@@ -1,7 +1,7 @@
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { formatNumberWithCommas } from "@/utils/handleData";
 import { FaArrowUp, FaArrowDown } from "react-icons/fa";
+import { formatNumberWithCommas } from "@/utils/handleData";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 interface Props {
   title: string;

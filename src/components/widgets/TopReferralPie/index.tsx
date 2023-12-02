@@ -1,9 +1,9 @@
-import { useTopReferralQuery } from "@/queries";
-import View from "./View";
 import {
   generateSumArrayOfKey,
   seperateKeyValuesFromArray,
 } from "@/utils/handleData";
+import View from "./View";
+import { useTopReferralQuery } from "@/queries";
 
 function TopReferralPie() {
   const { data: topReferral } = useTopReferralQuery();
