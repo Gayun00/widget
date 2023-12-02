@@ -9,6 +9,7 @@ import TopReferralTable from "@/components/widgets/TopReferralTable";
 import TotalEventCountSum from "@/components/widgets/TotalEventCountSum";
 import UniqueEventCountSum from "@/components/widgets/UniqueEventCountSum";
 import "./index.css";
+import dayjs from "dayjs";
 
 const ReactGridLayout = WidthProvider(RGL);
 
@@ -35,6 +36,9 @@ const initialLayout = [
 ];
 
 const Dashboard = ({ className, rowHeight, cols }: Props) => {
+  // data가 존재하는 날짜 중 임의로 '오늘 날짜'로 가정
+  const today = "2022-03-23";
+
   const savedLayout = localStorage.getItem(STORAGE_KEY.DASHBOARD_LAYOUT_1);
   const [layout, setLayout] = useState(
     savedLayout ? JSON.parse(savedLayout) : initialLayout
@@ -56,6 +60,10 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
   const handleDraggable = () => {
     setIsDraggable(!isDraggable);
   };
+
+  function getSevenDaysAgo(dateStr: string) {
+    return dayjs(dateStr).subtract(7, "day").format("YYYY.MM.DD");
+  }
 
   useEffect(() => {
     localStorage.setItem(
@@ -81,13 +89,13 @@ const Dashboard = ({ className, rowHeight, cols }: Props) => {
         rowHeight={rowHeight}
         cols={cols}>
         <div key="0">
-          <UniqueEventCountSum />
+          <UniqueEventCountSum date={today} />
         </div>
         <div key="1">
-          <TotalEventCountSum />
+          <TotalEventCountSum date={today} />
         </div>
         <div key="2">
-          <DAU startDate="2022-03-23" endDate="2022-03-28" />
+          <DAU startDate={getSevenDaysAgo(today)} endDate={today} />
         </div>
         <div key="3">
           <TopReferralPie />
