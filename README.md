@@ -30,7 +30,7 @@
 | --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------ |
 | <img src="https://img.shields.io/badge/React_Query-FF4154?style=for-the-badge&style=flat&logo=ReactQuery&logoColor=white&border"> | <img src="https://img.shields.io/badge/Vitest-6E9F18?style=for-the-badge&logo=Vitest&logoColor=white&style=flat&border"> | <img src="https://img.shields.io/badge/storybook-FF4785?style=for-the-badge&logo=storybook&style=flat&logoColor=white&border"> ||
 
-*인터렉션이 많고 실시간으로 변경되는 데이터를 보여주는 프로젝트 특성상, SSR을 고려하지 않고 React와 Vite를 사용하기로 결정했습니다.
+*인터렉션이 많고 실시간으로 변경되는 데이터를 보여주는 프로젝트 특성상, SSR을 고려하지 않고 React와 Vite를 선택해 구현했습니다.
 
 <br>
 
