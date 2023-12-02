@@ -17,3 +17,21 @@ export interface Response {
   version: string;
   last_compile_time: string;
 }
+
+export interface TopReferralTableDataResponse {
+  data: {
+    headers: ResponseHeader[];
+    rows: TopReferralTableData[];
+  };
+  result: boolean;
+  message: string;
+  version: string;
+  last_compile_time: string;
+}
+
+export interface TopReferralTableData {
+  country: string;
+  region: string;
+  city: string;
+  uniqueEventCount: number;
+}

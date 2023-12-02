@@ -1,9 +1,19 @@
-import { useMemo } from "react";
-import { convertArrayToObject } from "@/utils/handleData";
-import View from "./View";
-import { useTopReferralAreaQuery } from "@/queries";
+import type { Meta, StoryObj } from "@storybook/react";
 import { ColumnDef } from "@tanstack/react-table";
 import { TopReferralTableData } from "@/types/api";
+import Component from "./View";
+
+const meta: Meta<typeof Component> = {
+  title: "widgets/TopReferralTable",
+  component: Component,
+  tags: ["autodocs"],
+  parameters: {
+    layout: "fullscreen",
+  },
+};
+
+export default meta;
+type Story = StoryObj<typeof Component>;
 
 const columns: ColumnDef<TopReferralTableData>[] = [
   {
@@ -37,31 +47,25 @@ const columns: ColumnDef<TopReferralTableData>[] = [
     aggregatedCell: ({ getValue }) => getValue(),
   },
 ];
-const groupingColumns = ["country", "region", "city"];
 
-function TopReferralTable() {
-  const { data: topReferral } = useTopReferralAreaQuery();
-  const data = useMemo(() => {
-    const result = convertArrayToObject(
-      [
-        { name: "country", type: "string" },
-        { name: "region", type: "string" },
-        { name: "city", type: "string" },
-        { name: "uniqueEventCount", type: "number" },
-      ],
-      topReferral || []
-    );
-    return result as unknown as TopReferralTableData[];
-  }, [topReferral]);
-
-  return (
-    <View
-      title="Top referral"
-      columns={columns}
-      rows={data}
-      groupingColumns={groupingColumns}
-    />
-  );
-}
-
-export default TopReferralTable;
+export const Default: Story = {
+  args: {
+    title: "Top referrals",
+    columns: columns,
+    rows: [
+      {
+        country: "USA",
+        region: "California",
+        city: "New York",
+        uniqueEventCount: 20,
+      },
+      {
+        country: "GSA",
+        region: "Aalifornia",
+        city: "New York",
+        uniqueEventCount: 20,
+      },
+    ],
+    groupingColumns: ["country", "region", "city"],
+  },
+};
