@@ -12,7 +12,7 @@ function UniqueEventCountSum() {
   const date = "2022-03-23";
   const data: number | undefined = useMemo(() => {
     if (!userEvents) return;
-    return getUniqueEventSumByDate(userEvents.data.rows, date);
+    return getUniqueEventSumByDate(userEvents, date);
   }, [userEvents, date]);
 
   return (

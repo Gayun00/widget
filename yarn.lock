@@ -4089,6 +4089,25 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tanstack/query-devtools@npm:5.12.1":
+  version: 5.12.1
+  resolution: "@tanstack/query-devtools@npm:5.12.1"
+  checksum: 1956ef3edb9f54bae2c80a0a6ffbdcfe9167078f187d05db42a507675e6099857f41f1a5523eeed27dd3e1d2f878c6cf14c5912313823ed49532e210eaf3492a
+  languageName: node
+  linkType: hard
+
+"@tanstack/react-query-devtools@npm:^5.12.1":
+  version: 5.12.1
+  resolution: "@tanstack/react-query-devtools@npm:5.12.1"
+  dependencies:
+    "@tanstack/query-devtools": 5.12.1
+  peerDependencies:
+    "@tanstack/react-query": ^5.12.1
+    react: ^18.0.0
+  checksum: b54af592c5ba57741002151bc921ebddbc7f77a62f25ba366f31de82f2e54dda8493b09ca7e6ed8d35f2904506b612267ea39570a489001f4c2574a12e04d78b
+  languageName: node
+  linkType: hard
+
 "@tanstack/react-query@npm:^5.9.0":
   version: 5.10.0
   resolution: "@tanstack/react-query@npm:5.10.0"
@@ -8193,6 +8212,7 @@ __metadata:
     "@storybook/react-vite": ^7.6.1
     "@storybook/test": ^7.6.1
     "@tanstack/react-query": ^5.9.0
+    "@tanstack/react-query-devtools": ^5.12.1
     "@tanstack/react-table": ^8.10.7
     "@types/lodash": ^4.14.202
     "@types/node": ^20.10.2

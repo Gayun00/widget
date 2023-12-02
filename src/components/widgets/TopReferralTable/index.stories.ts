@@ -15,6 +15,7 @@ type Story = StoryObj<typeof Component>;
 
 export const Default: Story = {
   args: {
+    title: "Top referrals",
     columns: [
       {
         id: "123",
