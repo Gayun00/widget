@@ -14,43 +14,10 @@
 
 |
 
-#### Overview
-
-##### 위젯 레이아웃
-
-- 레이아웃 고정 및 초기화 버튼
-- 레이아웃 위치 이동 및 리사이징 기능
-
-##### 접속 유저 총합
-
-##### 접속 횟수 총합
-
-##### DAU
-
-##### Top referral pie chart
-
-- 4위까지 파이차트 표시
-- 5위부터 etc로 총합 표시
-
-##### Top referral table
-
-- country > region > city 순서의 depth로 row grouping
-- group별 unique event count 부분합 표시
-
 <br>
-
-#### Folder structure
-
-#### Convention
-
-##### commit
-
-##### branch
-
-- trunk-based-development
 
 #### CI/CD
 
-##### test
-
-- vitest
+- unit test pre-commit
+- storybook 자동 빌드/배포
+- vercel 자동 배포
