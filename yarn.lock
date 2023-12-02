@@ -5921,6 +5921,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"chromatic@npm:^10.0.0":
+  version: 10.0.0
+  resolution: "chromatic@npm:10.0.0"
+  bin:
+    chroma: dist/bin.js
+    chromatic: dist/bin.js
+    chromatic-cli: dist/bin.js
+  checksum: c342276bafb6c848468a983323afd414e70f8a58348c760fa9cbb88200e34470c602dbf3f6f8929d83fa8876c58ca3bfd521eb9c63af33ade69f0633f905bb68
+  languageName: node
+  linkType: hard
+
 "ci-info@npm:^3.2.0":
   version: 3.9.0
   resolution: "ci-info@npm:3.9.0"
@@ -8193,6 +8204,7 @@ __metadata:
     "@vitejs/plugin-react": ^4.2.0
     apexcharts: ^3.44.0
     autoprefixer: ^10.4.16
+    chromatic: ^10.0.0
     class-variance-authority: ^0.7.0
     clsx: ^2.0.0
     dayjs: ^1.11.10
