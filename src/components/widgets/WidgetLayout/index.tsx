@@ -17,7 +17,7 @@ function WidgetLayout({ title, children, hasData }: Props) {
         </CardTitle>
       </CardHeader>
 
-      <CardContent className="space-y-3">
+      <CardContent className="h-full space-y-3">
         {hasData ? <>{children}</> : <EmptyWidgetData />}
       </CardContent>
     </Card>

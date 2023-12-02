@@ -24,28 +24,27 @@ interface Props {
 }
 
 export default function View({ title, columns, rows, isLoading }: Props) {
-  const apiRef = useGridApiRef();
+  const WrappedDataGrid = () => {
+    const apiRef = useGridApiRef();
 
-  const initialState = useKeepGroupedColumnsHidden({
-    apiRef,
-    initialState: {
-      rowGrouping: {
-        model: ["country", "region", "city"],
-      },
-      sorting: {
-        sortModel: [{ field: "__row_group_by_columns_group__", sort: "asc" }],
-      },
-      aggregation: {
-        model: {
-          uniqueEventCount: "sum",
+    const initialState = useKeepGroupedColumnsHidden({
+      apiRef,
+      initialState: {
+        rowGrouping: {
+          model: ["country", "region", "city"],
+        },
+        sorting: {
+          sortModel: [{ field: "__row_group_by_columns_group__", sort: "asc" }],
+        },
+        aggregation: {
+          model: {
+            uniqueEventCount: "sum",
+          },
         },
       },
-    },
-  });
-
-  return (
-    <WidgetLayout title={title} hasData={!!rows.length}>
-      <div className="w-full h-full">
+    });
+    return (
+      <div className="h-5/6">
         <DataGridPremium
           rows={rows}
           columns={columns}
@@ -56,6 +55,12 @@ export default function View({ title, columns, rows, isLoading }: Props) {
           slots={{ toolbar: GridToolbar }}
         />
       </div>
+    );
+  };
+
+  return (
+    <WidgetLayout title={title} hasData={!!rows.length}>
+      <WrappedDataGrid />
     </WidgetLayout>
   );
 }
