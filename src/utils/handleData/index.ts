@@ -1,10 +1,13 @@
 import dayjs from "dayjs";
-import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import isSameOrAfter from "dayjs/plugin/isSameOrAfter";
+import isSameOrBefore from "dayjs/plugin/isSameOrBefore";
 import { v4 as uuid } from "uuid";
 
 dayjs.extend(isSameOrBefore);
 dayjs.extend(isSameOrAfter);
+
+const UNIQUE_EVENT_COUNT_INDEX = 1;
+const TOTAL_EVENT_COUNT_INDEX = 2;
 
 export const sumDataOfKey = (
   rows: string[][],
@@ -21,6 +24,7 @@ export const generateSumArrayOfKey = (
   dataIndex: number,
   range?: number
 ) => {
+  if (!data) return;
   const sum: Record<string, number> = {};
 
   data.forEach((date) => {
@@ -51,7 +55,7 @@ export const getUniqueEventSumByDate = (
   rows: string[][],
   targetDate: string
 ): number => {
-  return sumDataOfKey(rows, targetDate, 1);
+  return sumDataOfKey(rows, targetDate, UNIQUE_EVENT_COUNT_INDEX);
 };
 
 export const getTotalEventSumByDate = (
@@ -60,7 +64,7 @@ export const getTotalEventSumByDate = (
 ): number => {
   return rows
     .filter((row) => row[0] === targetDate)
-    .reduce((sum, row) => sum + parseInt(row[2], 10), 0);
+    .reduce((sum, row) => sum + parseInt(row[TOTAL_EVENT_COUNT_INDEX], 10), 0);
 };
 
 export const generateSumInDateRange = (
@@ -73,6 +77,7 @@ export const generateSumInDateRange = (
   const end = dayjs(endDate);
   const sum: Record<string, number> = {};
 
+  if (!dates) return [];
   for (let d = start; d.isSameOrBefore(end); d = d.add(1, "day")) {
     sum[d.format("YYYY-MM-DD")] = 0;
   }
@@ -112,6 +117,7 @@ export const convertArrayToObject = (
   }[],
   data: string[][]
 ) => {
+  if (!data) return [];
   return data.map((item) => {
     const obj: Record<string, string | number> = {};
     keys.forEach((key, index) => {

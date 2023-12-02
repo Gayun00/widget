@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import Component from "../TopReferralPie/View";
+import Component from ".";
 
 const meta: Meta<typeof Component> = {
-  title: "widgets/TopReferralPie",
+  title: "fallbacks/EmptyWidgetData",
   component: Component,
   tags: ["autodocs"],
   parameters: {
@@ -13,9 +13,4 @@ const meta: Meta<typeof Component> = {
 export default meta;
 type Story = StoryObj<typeof Component>;
 
-export const Default: Story = {
-  args: {
-    data: [44, 55, 13, 43, 22],
-    labels: ["Team A", "Team B", "Team C", "Team D", "Team E"],
-  },
-};
+export const Default: Story = {};

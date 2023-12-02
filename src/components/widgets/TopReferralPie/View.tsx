@@ -1,14 +1,15 @@
-import { Card } from "@/components/ui/card";
 import { ApexOptions } from "apexcharts";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import WidgetLayout from "../WidgetLayout";
 
 interface Props {
+  title: string;
   data: number[];
   labels: string[];
 }
 
-function View({ data, labels }: Props) {
+function View({ title, data, labels }: Props) {
   const [series] = useState(data);
   const [options] = useState<ApexOptions>({
     chart: {
@@ -32,14 +33,16 @@ function View({ data, labels }: Props) {
   });
 
   return (
-    <Card className="flex justify-center items-center w-full h-full">
-      <ReactApexChart
-        options={options}
-        series={series}
-        type="pie"
-        width={400}
-      />
-    </Card>
+    <WidgetLayout title={title} hasData={!!data.length || !!labels.length}>
+      <div className="flex justify-center items-center w-full h-full">
+        <ReactApexChart
+          options={options}
+          series={series}
+          type="pie"
+          width={400}
+        />
+      </div>
+    </WidgetLayout>
   );
 }
 

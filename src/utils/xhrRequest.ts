@@ -1,5 +1,5 @@
-import { STORAGE_KEY, URL } from "../constants";
-import { RequestParams } from "../types/xhrRequest";
+import { RequestParams } from "@/types/xhrRequest";
+import { STORAGE_KEY, URL } from "@/constants";
 
 const xhrRequest = <TParams, TResponse>({
   path,

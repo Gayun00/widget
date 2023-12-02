@@ -1,7 +1,7 @@
-import { Card } from "@/components/ui/card";
 import { ApexOptions } from "apexcharts";
 import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { Card } from "@/components/ui/card";
 
 interface Props {
   dates: string[];
