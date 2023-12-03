@@ -1,13 +1,11 @@
 import { RequestParams } from "@/types/xhrRequest";
-import { STORAGE_KEY, URL } from "@/constants";
+import {  URL } from "@/constants";
 
 const xhrRequest = <TParams, TResponse>({
   path,
   method,
   queryParams,
   params,
-  isMock,
-  shouldAuthorize,
 }: RequestParams<TParams>) => {
   return new Promise<TResponse>((resolve, reject) => {
     const xhr = new XMLHttpRequest();
@@ -30,22 +28,17 @@ const xhrRequest = <TParams, TResponse>({
 
     xhr.open(
       method || "get",
-      `${isMock ? "" : URL.API}${path}${
+      `${URL.API}${path}${
         searchParams ? `?${searchParams}` : ""
       }`,
       true
     );
 
-    if (shouldAuthorize) {
-      const token = localStorage.getItem(STORAGE_KEY.TOKEN);
-      if (token) {
-        xhr.setRequestHeader("Authorization", `Bearer ${token}`);
-      }
-    }
+
 
     xhr.onload = function () {
       if (this.status >= 200 && this.status < 300) {
-        resolve(JSON.parse(xhr.responseText) as TResponse); // Type assertion here
+        resolve(JSON.parse(xhr.responseText) as TResponse);
       } else {
         reject(new Error(xhr.status.toString()));
       }
